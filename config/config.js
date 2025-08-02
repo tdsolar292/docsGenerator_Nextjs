@@ -5,9 +5,9 @@ const config = {
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
-    adminEmail: 'admin@tdsolar.in',
-    adminEmailSenderMailID:'contact@tdsolar.in',
-    adminPassword: '', // Use App Password for Gmail
+    adminEmail: process.env.ADMIN_EMAIL || 'admin@tdsolar.in',
+    adminEmailSenderMailID: 'contact@tdsolar.in',
+    adminPassword: process.env.ADMIN_EMAIL_PASSWORD || '', // Use App Password for Gmail
   },
   
   // Company Information

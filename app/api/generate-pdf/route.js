@@ -1,5 +1,6 @@
 import jsPDF from 'jspdf';
 const config = require('../../../config/config');
+require('dotenv').config();
 
 export async function POST(request) {
   try {

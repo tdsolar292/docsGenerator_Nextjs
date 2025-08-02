@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 import jsPDF from 'jspdf';
 const config = require('../../../config/config');
+require('dotenv').config();
 
 export async function POST(request) {
   try {
@@ -116,7 +117,7 @@ export async function POST(request) {
     const pdfBuffer = Buffer.from(pdf.output('arraybuffer'));
 
     // Create transporter
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: config.email.service,
       auth: {
         user: config.email.adminEmail,
@@ -126,7 +127,7 @@ export async function POST(request) {
 
     // Email options
     const mailOptions = {
-      from: '"TD SOLAR INVOICE" <contact@tdsolar.in>',
+      from: '"TD SOLAR DOCUMENTATION" <contact@tdsolar.in>',
       to: config.email.adminEmail,
       subject: `New Solar Document: ${formData.documentType} - ${formData.clientName}`,
       html: `
